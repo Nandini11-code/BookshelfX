@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library - BookShelfX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                BookShelfX
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="catalog.html" class="nav-link">Catalog</a></li>
+                <li class="nav-item"><a href="library.html" class="nav-link">My Library</a></li>
+                <li class="nav-item"><a href="authors.html" class="nav-link">Authors</a></li>
+                <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+            </ul>
+            <div class="nav-badge" id="cartBadge">0</div>
+        </div>
+    </nav>
+
+    <!-- My Library Page -->
+    <section class="library-section" style="min-height: 100vh; padding-top: 2rem;">
+        <div class="container">
+            <h2 class="section-title">My Library - Currently Reading</h2>
+            <div class="library-content">
+                <div class="borrowed-books" id="borrowedBooks">
+                    <!-- Borrowed books will be displayed here -->
+                </div>
+                <div class="library-empty" id="libraryEmpty">
+                    <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <p>No books borrowed yet. Start exploring our <a href="catalog.html" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">catalog</a>!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 BookShelfX. All rights reserved. Your gateway to unlimited reading.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

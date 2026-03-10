@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - BookShelfX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                BookShelfX
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="catalog.html" class="nav-link">Catalog</a></li>
+                <li class="nav-item"><a href="library.html" class="nav-link">My Library</a></li>
+                <li class="nav-item"><a href="authors.html" class="nav-link">Authors</a></li>
+                <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+            </ul>
+            <div class="nav-badge" id="cartBadge">0</div>
+        </div>
+    </nav>
+
+    <!-- Catalog Page -->
+    <section class="catalog-section" style="min-height: 100vh; padding-top: 2rem;">
+        <div class="catalog-container">
+            <!-- Sidebar Filters -->
+            <aside class="filter-sidebar">
+                <div class="sidebar-header">
+                    <h3>Filter by:</h3>
+                    <button class="filter-reset-btn" onclick="resetAllFilters()">Reset All</button>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="filter-group-sidebar">
+                    <h4 class="filter-group-title">Category</h4>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="" class="category-filter" checked onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        All categories
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="fiction" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Fiction
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="mystery" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Mystery
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="romance" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Romance
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="science" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Science Fiction
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="fantasy" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Fantasy
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="biography" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Biography
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="horror" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Horror
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="classic" class="category-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Classic
+                    </label>
+                </div>
+
+                <!-- Book Format Filter -->
+                <div class="filter-group-sidebar">
+                    <h4 class="filter-group-title">Book Format</h4>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="" class="format-filter" checked onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        All formats
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="hardcover" class="format-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Hardcover
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="paperback" class="format-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Paperback
+                    </label>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="filter-group-sidebar">
+                    <h4 class="filter-group-title">Price Range</h4>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="" class="price-filter" checked onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        All price ranges
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="under-1000" class="price-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Under &#8377;1,000
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="1000-1500" class="price-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        &#8377;1,000 – &#8377;1,500
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="over-1500" class="price-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        Over &#8377;1,500
+                    </label>
+                </div>
+
+                <!-- Customer Rating Filter -->
+                <div class="filter-group-sidebar">
+                    <h4 class="filter-group-title">Customer Rating</h4>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="" class="rating-filter" checked onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        All ratings
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="5" class="rating-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        <span class="stars">★★★★★</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="4" class="rating-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        <span class="stars">★★★★</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="3" class="rating-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        <span class="stars">★★★</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="2" class="rating-filter" onchange="filterBooks()">
+                        <span class="checkbox-custom"></span>
+                        <span class="stars">★★</span>
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="catalog-main">
+                <div class="container">
+                    <h2 class="section-title">Complete Book Catalog</h2>
+
+                    <!-- Books Grid -->
+                    <div class="books-grid" id="booksGrid">
+                        <!-- Books will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 BookShelfX. All rights reserved. Your gateway to unlimited reading.</p>
+        </div>
+    </footer>
+
+    <!-- Book Modal -->
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalBookImage" src="" alt="Book Cover">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalBookTitle"></h2>
+                    <p class="modal-author"><strong>Author:</strong> <span id="modalBookAuthor"></span></p>
+                    <p class="modal-genre"><strong>Genre:</strong> <span id="modalBookGenre"></span></p>
+                    <p class="modal-pages"><strong>Pages:</strong> <span id="modalBookPages"></span></p>
+                    <p class="modal-rating"><strong>Rating:</strong> <span id="modalBookRating"></span></p>
+                    <p class="modal-price"><strong>Price:</strong> $<span id="modalBookPrice"></span></p>
+                    <p class="modal-description" id="modalBookDescription"></p>
+                    <div class="reading-link" id="readingLinkContainer" style="display: none;">
+                        <button class="btn btn-success" onclick="openReadingLink()" id="readingLinkBtn">📖 Read Sample</button>
+                    </div>
+                    <div class="rental-info">
+                        <p><strong>Rental Period:</strong> <span id="rentalPeriod">7 days</span></p>
+                        <button class="btn btn-primary" onclick="borrowBook()" id="borrowBtn">Rent Now (7 Days)</button>
+                        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
